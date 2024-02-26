@@ -4,6 +4,7 @@ import pandas as pd
 
 # Split the filename on the '-' character
 def extract_numerical_values(filename):
+    filename = filename.strip(".wav")
     parts = filename.split('-')
     return [int(part) for part in parts]
 
@@ -12,8 +13,10 @@ def extract_numerical_values(filename):
 folder_path = "data"
 numerical_data = []
 for folder in os.listdir(folder_path):
-    if os.path.isdir(folder):
-        for filename in os.listdir(folder):
+    print(folder)
+    if os.path.isdir(folder_path + "/" + folder):
+        for filename in os.listdir(folder_path + "/" + folder):
+            print(filename)
             if filename.endswith(".wav"):
                 numerical_values = extract_numerical_values(filename)
                 numerical_data.append([filename] + numerical_values)
