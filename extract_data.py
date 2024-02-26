@@ -1,10 +1,12 @@
 import os
 import pandas as pd
 
+
 # Split the filename on the '-' character
 def extract_numerical_values(filename):
     parts = filename.split('-')
     return [int(part) for part in parts]
+
 
 # Extract the features from the filename
 folder_path = "data"
@@ -26,3 +28,4 @@ print(df.head())
 
 # Save DataFrame to CSV
 df.to_csv("data/filename_features.csv", index=False)
+
