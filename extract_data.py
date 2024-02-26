@@ -13,13 +13,11 @@ def extract_numerical_values(filename):
 folder_path = "data"
 numerical_data = []
 for folder in os.listdir(folder_path):
-    print(folder)
     if os.path.isdir(folder_path + "/" + folder):
         for filename in os.listdir(folder_path + "/" + folder):
-            print(filename)
             if filename.endswith(".wav"):
                 numerical_values = extract_numerical_values(filename)
-                numerical_data.append([filename] + numerical_values)
+                numerical_data.append([folder_path + "/" + folder + "/" + filename] + numerical_values)
 
 # Create DataFrame
 columns = ['Filename', 'Modality', 'Vocal Channel', 'Emotion', 'Emotional Intensity', 'Statement', 'Repetition', 'Actor']
