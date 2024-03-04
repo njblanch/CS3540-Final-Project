@@ -16,6 +16,7 @@ if __name__ == "__main__":
 
     # Select a target list
     label_list = filename_df["Emotion"]
+    intensity_list = filename_df["Emotional Intensity"]
 
     # Initialize Smile - change features as you want
     smile = opensmile.Smile(
@@ -47,6 +48,7 @@ if __name__ == "__main__":
 
     # Add targets
     processed_df["target"] = label_list
+    processed_df["intensity"] = intensity_list
 
     # Save to csv
     processed_df.to_csv("data/processed_features.csv")
